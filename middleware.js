@@ -5,6 +5,9 @@ export default async function middleware(request) {
 		await sleep(1000);
 
 		const response = new Response();
+		// response.headers.set('cache-control', 'public, max-age=10')
+		response.headers.set('access-control-allow-origin', '*')
+		response.headers.set('cross-origin-resource-policy', 'cross-origin')
 		response.headers.set('x-middleware-next', '1');
 		return response;
 	}

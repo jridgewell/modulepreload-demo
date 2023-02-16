@@ -2,7 +2,7 @@ const sleep = (ms) => new Promise((f) => setTimeout(f, ms));
 
 export default async function middleware(request) {
 	console.log(request);
-	if (request.url.endsWith('.js')) {
+	if (request.url.endsWith('.mjs')) {
 		await sleep(1000);
 
 		const response = new Response();

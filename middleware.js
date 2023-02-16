@@ -15,7 +15,7 @@ export default async function middleware(request) {
 		['a', 'b', 'c']
 			.map(
 				(x) =>
-					`<./${x}.mjs>; rel="preload"; as="script"; crossorigin="anonymous"; nopush`
+					`<${new URL(`./${x}.mjs`, request.url)}>; rel="preload"; as="script"; crossorigin="anonymous"; nopush`
 			)
 			.join(', ')
 	);

@@ -13,15 +13,15 @@ export default async function middleware(request) {
 	}
 
 	const response = new Response();
-	response.headers.set(
-		'link',
-		['a', 'b', 'c']
-			.map(
-				(x) =>
-					`<${new URL(`./${x}.mjs`, request.url)}>; rel="preload"; as="script"; crossorigin="anonymous"`
-			)
-			.join(', ')
-	);
+	// response.headers.set(
+		// 'link',
+		// ['a']
+			// .map(
+				// (x) =>
+					// `<${new URL(`./${x}.mjs`, request.url)}>; rel="preload"; as="script"; crossorigin="anonymous"`
+			// )
+			// .join(', ')
+	// );
 	response.headers.set('x-middleware-next', '1');
 	return response;
 }
